@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+        }
+
+        #yesBtn {
+            font-size: 20px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        #noBtn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://media1.tenor.com/m/kutFNFXxSIsAAAAd/minion-minion-loves.gif" alt="Cute GIF">
+
+    <h1>Happy Valentine's Day, will you be my Valentine?</h1>
+
+    <button id="yesBtn" onclick="goToPage2()">Yes</button>
+    <button id="noBtn" onclick="noClicked()">No</button>
+
+    <script>
+        let noTexts = [
+            "Are you sure?",
+            "Really sure?",
+            "Think again!",
+            "Last chance!",
+            "Come on...",
+            "Please?",
+            "You're breaking my heart...",
+            "Try again 😭"
+        ];
+
+        let noIndex = 0;
+        let yesSize = 20;
+
+        function goToPage2() {
+            window.location.href = "yes.html";
+        }
+
+        function noClicked() {
+            // Change No button text
+            noIndex = (noIndex + 1) % noTexts.length;
+            document.getElementById("noBtn").innerText = noTexts[noIndex];
+
+            // Increase Yes button size
+            yesSize += 20;
+            document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+            document.getElementById("yesBtn").style.padding = (yesSize / 2) + "px " + yesSize + "px";
+
+            // If it gets huge, make it fill the screen
+            if (yesSize > 200) {
+                document.getElementById("yesBtn").style.width = "90%";
+                document.getElementById("yesBtn").style.height = "300px";
+            }
+        }
+    </script>
+
+</body>
+</html>
